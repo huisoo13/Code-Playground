@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		575EC9F62DA3BF4300DD4251 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 575EC9F52DA3BF4300DD4251 /* GoogleSignIn */; };
+		575EC9F82DA3BF4300DD4251 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 575EC9F72DA3BF4300DD4251 /* GoogleSignInSwift */; };
+		575EC9FC2DA3BF5E00DD4251 /* NidThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 575EC9FB2DA3BF5E00DD4251 /* NidThirdPartyLogin */; };
+		575EC9FF2DA3C0A500DD4251 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 575EC9FE2DA3C0A500DD4251 /* KakaoSDK */; };
+		575ECA012DA3C0A500DD4251 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 575ECA002DA3C0A500DD4251 /* KakaoSDKAuth */; };
+		575ECA032DA3C0A500DD4251 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 575ECA022DA3C0A500DD4251 /* KakaoSDKCommon */; };
+		575ECA052DA3C0A500DD4251 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 575ECA042DA3C0A500DD4251 /* KakaoSDKUser */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		575EC9602DA3BBB100DD4251 /* switf-social-login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "switf-social-login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +46,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575EC9F62DA3BF4300DD4251 /* GoogleSignIn in Frameworks */,
+				575EC9FF2DA3C0A500DD4251 /* KakaoSDK in Frameworks */,
+				575EC9F82DA3BF4300DD4251 /* GoogleSignInSwift in Frameworks */,
+				575ECA052DA3C0A500DD4251 /* KakaoSDKUser in Frameworks */,
+				575EC9FC2DA3BF5E00DD4251 /* NidThirdPartyLogin in Frameworks */,
+				575ECA032DA3C0A500DD4251 /* KakaoSDKCommon in Frameworks */,
+				575ECA012DA3C0A500DD4251 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				575EC9622DA3BBB100DD4251 /* switf-social-login */,
+				575EC9FD2DA3C0A500DD4251 /* Frameworks */,
 				575EC9612DA3BBB100DD4251 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +74,13 @@
 				575EC9602DA3BBB100DD4251 /* switf-social-login.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		575EC9FD2DA3C0A500DD4251 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +103,13 @@
 			);
 			name = "switf-social-login";
 			packageProductDependencies = (
+				575EC9F52DA3BF4300DD4251 /* GoogleSignIn */,
+				575EC9F72DA3BF4300DD4251 /* GoogleSignInSwift */,
+				575EC9FB2DA3BF5E00DD4251 /* NidThirdPartyLogin */,
+				575EC9FE2DA3C0A500DD4251 /* KakaoSDK */,
+				575ECA002DA3C0A500DD4251 /* KakaoSDKAuth */,
+				575ECA022DA3C0A500DD4251 /* KakaoSDKCommon */,
+				575ECA042DA3C0A500DD4251 /* KakaoSDKUser */,
 			);
 			productName = "switf-social-login";
 			productReference = 575EC9602DA3BBB100DD4251 /* switf-social-login.app */;
@@ -107,6 +139,11 @@
 			);
 			mainGroup = 575EC9572DA3BBB100DD4251;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				575EC9F42DA3BF4300DD4251 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				575EC9F92DA3BF5100DD4251 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				575EC9FA2DA3BF5E00DD4251 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 575EC9612DA3BBB100DD4251 /* Products */;
 			projectDirPath = "";
@@ -143,6 +180,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "switf-social-login/switf-social-login.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -152,6 +190,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -170,6 +209,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "switf-social-login/switf-social-login.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -179,6 +219,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,6 +374,71 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		575EC9F42DA3BF4300DD4251 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		575EC9F92DA3BF5100DD4251 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.24.0;
+			};
+		};
+		575EC9FA2DA3BF5E00DD4251 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/naver/naveridlogin-sdk-ios-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		575EC9F52DA3BF4300DD4251 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575EC9F42DA3BF4300DD4251 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		575EC9F72DA3BF4300DD4251 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575EC9F42DA3BF4300DD4251 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		575EC9FB2DA3BF5E00DD4251 /* NidThirdPartyLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575EC9FA2DA3BF5E00DD4251 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */;
+			productName = NidThirdPartyLogin;
+		};
+		575EC9FE2DA3C0A500DD4251 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575EC9F92DA3BF5100DD4251 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		575ECA002DA3C0A500DD4251 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575EC9F92DA3BF5100DD4251 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		575ECA022DA3C0A500DD4251 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575EC9F92DA3BF5100DD4251 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		575ECA042DA3C0A500DD4251 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575EC9F92DA3BF5100DD4251 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 575EC9582DA3BBB100DD4251 /* Project object */;
 }

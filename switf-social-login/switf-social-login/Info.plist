@@ -21,5 +21,55 @@
 			</array>
 		</dict>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>{GOOGLE-REVERSE-CLIENT-ID}</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>naverlogin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>{URL-SCHEME}</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>kakaologin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao{APP-KEY}</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>{GOOGLE-CLIENT-ID}</string>
+	<key>GIDServerClientID</key>
+	<string>{GOOGLE-SERVER-CLIENT-ID-OPTIONAL}</string>
+	<key>KidNativeAppKey</key>
+	<string>{APP-KEY}</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+		<string>kakaoplus</string>
+		<string>kakaotalk</string>
+	</array>
+	<key>NidAppName</key>
+	<string>{APP-NAME}</string>
+	<key>NidClientID</key>
+	<string>{NAVER-CLIENT-ID}</string>
+	<key>NidClientSecret</key>
+	<string>{NAVER-CLIENT-SECRET}</string>
+	<key>NidUrlScheme</key>
+	<string>{URL-SCHEME}</string>
 </dict>
 </plist>

@@ -47,6 +47,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            if AccountManager.shared.isAuthenticationRedirectURL(url) { // SNS 로그인인 경우
+                return
+            }
+            
+            // 그 외
+        }
+    }
 }
 
