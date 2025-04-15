@@ -23,4 +23,18 @@ class AppCoordinator: Coordinator {
         viewController.coordinator = self
         self.navigationController.pushViewController(viewController, animated: false)
     }
+    
+    // MARK: - Push
+    func pushDetailViewController(animated: Bool) {
+        let viewController = DetailViewController.nib()
+        viewController.coordinator = self
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    // MARK: - Present
+    func presentDetailViewController(animated: Bool) {
+        let viewController = DetailViewController.nib()
+        let target = self.navigationController.viewControllers.last
+        target?.present(viewController, animated: animated)
+    }
 }
