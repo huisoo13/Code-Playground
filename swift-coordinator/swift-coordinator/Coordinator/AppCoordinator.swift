@@ -32,9 +32,11 @@ class AppCoordinator: Coordinator {
     }
     
     // MARK: - Present
-    func presentDetailViewController(animated: Bool) {
-        let viewController = DetailViewController.nib()
-        let target = self.navigationController.viewControllers.last
-        target?.present(viewController, animated: animated)
+    func presentChildViewController(animated: Bool) {
+        let coordinator = ChildCoordinator()
+        coordinator.parentCoordinator = self
+        
+        self.childCoordinators.append(coordinator)
+        coordinator.start()
     }
 }

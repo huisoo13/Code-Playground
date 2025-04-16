@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func presentAction(_ sender: UIButton) {
-        coordinator?.presentDetailViewController(animated: true)
+        coordinator?.presentChildViewController(animated: true)
     }
 }
 
