@@ -44,7 +44,7 @@ class SpicyMaratang: Maratang {
     }
     
     func description() -> String {
-        return " 마라탕 매운맛"
+        return "마라탕 매운맛"
     }
 }
 
@@ -72,7 +72,7 @@ extension Topping {
         
         // 이전에 토핑한 값이 Topping인 경우, 재귀
         if let topping = decorated as? Topping {
-            return topping.removing(T.self)
+            return Self.init(decorated: topping.removing(T.self))
         }
                 
         // 모두 해당하지 않는 경우, Topping이 아니므로 return self
@@ -86,7 +86,7 @@ extension Topping {
         }
         
         // 토핑 하기 전 값이 T인 경우, true
-        if let topping = decorated as? T {
+        if type(of: decorated) == decoratorType {
             return true
         }
         

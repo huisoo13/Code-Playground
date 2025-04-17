@@ -9,29 +9,103 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
+    
+    var maratang: Maratang?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        foo()
+    }
+    
+    func printMaratang() {
+        guard let maratang else {
+            return
+        }
+        
+        label.text = "\(maratang.description()), Cost: \(maratang.cost())"
     }
 
-    func foo() {
-        let maratang1 = LessSpicyMaratang()
-        let maratang2 = Meat(decorated: maratang1)
-        let maratang3 = Noodles(decorated: maratang2)
-        let maratang4 = Vegetable(decorated: maratang3)
-        let maratang5 = Meat(decorated: maratang4)
-        let maratang6 = maratang5.removing(Meat.self)
-        let maratang7 = Vegetable(decorated: maratang6)
+    @IBAction func selectMild(_ sender: UIButton) {
+        let maratang = MildMaratang()
+        self.maratang = maratang
         
-        print(maratang1.cost(), maratang1.description())
-        print(maratang2.cost(), maratang2.description())
-        print(maratang3.cost(), maratang3.description())
-        print(maratang4.cost(), maratang4.description())
-        print(maratang5.cost(), maratang5.description())
-        print(maratang6.cost(), maratang6.description())
-        print(maratang7.cost(), maratang7.description())
+        printMaratang()
+    }
+    
+    @IBAction func selectLessSpicy(_ sender: UIButton) {
+        let maratang = LessSpicyMaratang()
+        self.maratang = maratang
+        
+        printMaratang()
+    }
+    
+    @IBAction func selectSpicy(_ sender: UIButton) {
+        let maratang = SpicyMaratang()
+        self.maratang = maratang
+        
+        printMaratang()
+    }
+    
+    @IBAction func addMeat(_ sender: UIButton) {
+        guard let maratang else {
+            return
+        }
+        
+        self.maratang = Meat(decorated: maratang)
+        
+        printMaratang()
+    }
+    
+    @IBAction func addNoodle(_ sender: UIButton) {
+        guard let maratang else {
+            return
+        }
+        
+        self.maratang = Noodles(decorated: maratang)
+        
+        printMaratang()
+    }
+    
+    @IBAction func addVegetable(_ sender: UIButton) {
+        guard let maratang else {
+            return
+        }
+        
+        self.maratang = Vegetable(decorated: maratang)
+        
+        printMaratang()
+    }
+    
+    @IBAction func removeMeat(_ sender: UIButton) {
+        guard let maratang = maratang as? Topping else {
+            return
+        }
+        
+        self.maratang = maratang.removing(Meat.self)
+        
+        printMaratang()
+    }
+    
+    @IBAction func removeNoodle(_ sender: UIButton) {
+        guard let maratang = maratang as? Topping else {
+            return
+        }
+        
+        self.maratang = maratang.removing(Noodles.self)
+        
+        printMaratang()
+    }
+    
+    @IBAction func removeVegetable(_ sender: UIButton) {
+        guard let maratang = maratang as? Topping else {
+            return
+        }
+        
+        self.maratang = maratang.removing(Vegetable.self)
+        
+        printMaratang()
     }
 }
 
