@@ -14,6 +14,13 @@ enum AppError: Error {
     case unknown
 }
 
+enum ErrorHandlingLevel {
+    case all
+    case alert
+    case logging
+    case none
+}
+
 // MARK: - Strategy
 
 protocol ErrorHandlingStrategy {
@@ -49,5 +56,17 @@ final class AlertErrorHandler: ErrorHandlingStrategy {
 final class LoggingErrorHandler: ErrorHandlingStrategy {
     func handle(_ error: AppError) {
         print("Error: \(error)")
+    }
+}
+
+final class CompositeErrorHandler: ErrorHandlingStrategy {
+    private let handlers: [ErrorHandlingStrategy]
+
+    init(_ handlers: [ErrorHandlingStrategy]) {
+        self.handlers = handlers
+    }
+
+    func handle(_ error: AppError) {
+        handlers.forEach { $0.handle(error) }
     }
 }
