@@ -9,7 +9,7 @@ import UIKit
 
 class ChildViewController: UIViewController {
 
-    var coordinator: ChildCoordinator?
+    weak var coordinator: ChildCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
