@@ -8,8 +8,7 @@
 import UIKit
 
 class ChildCoordinator: Coordinator {
-    var parentCoordinator: AppCoordinator?
-    fileprivate var parent: UIViewController?
+    weak var parentCoordinator: AppCoordinator?
 
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController = UINavigationController()
@@ -21,12 +20,12 @@ class ChildCoordinator: Coordinator {
         self.navigationController = UINavigationController(rootViewController: viewController)
         self.navigationController.modalPresentationStyle = .overCurrentContext
         
-        self.parent = self.parentCoordinator?.navigationController.viewControllers.last
-        self.parent?.present(self.navigationController, animated: true)
+        let parent = self.parentCoordinator?.navigationController.viewControllers.last
+        parent?.present(self.navigationController, animated: true)
     }
     
     func finish() {
         self.parentCoordinator?.removeChildCoordinator(self)
-        self.parent?.dismiss(animated: true)
+        self.parentCoordinator?.dismiss(animated: true)
     }
 }
