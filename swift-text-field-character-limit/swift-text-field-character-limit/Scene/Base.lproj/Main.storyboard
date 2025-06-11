@@ -21,26 +21,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0 / 10)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUX-zp-oCh">
-                                <rect key="frame" x="16" y="176" width="361" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0iT-I7-PkU" secondAttribute="trailing" constant="16" id="1Hm-WJ-6tB"/>
-                            <constraint firstItem="hUX-zp-oCh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="a54-ow-EHv"/>
                             <constraint firstItem="0iT-I7-PkU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cyQ-e7-TGY"/>
                             <constraint firstItem="0iT-I7-PkU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="gru-UU-aS2"/>
-                            <constraint firstItem="hUX-zp-oCh" firstAttribute="top" secondItem="0iT-I7-PkU" secondAttribute="bottom" constant="8" id="n0j-B7-z9l"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hUX-zp-oCh" secondAttribute="trailing" constant="16" id="pXw-Km-D2R"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="label" destination="hUX-zp-oCh" id="aWz-R1-qrG"/>
                         <outlet property="textField" destination="0iT-I7-PkU" id="6RB-6O-Mor"/>
                     </connections>
                 </viewController>
