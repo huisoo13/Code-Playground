@@ -16,8 +16,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     
-    var isUserTyping: Bool = false
-    var isChangedSelectionByUser: Bool = false
+    var isUserTyping: Bool = false  // 사용자가 입력을 했는지 확인하는 플래그
+    var isChangedSelectionByUser: Bool = false  // 사용자가 TextField 입력 포인트를 변경 했는지 확인하는 플래그
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ extension ViewController: UITextFieldDelegate {
                 return false
             }
 
-            let previousCharacter = range.location > 0 ? (originText as NSString).substring(with: NSRange(location: range.location - 1, length: 1)) : "" // 커서 위치 글자 가져오기
+            let previousCharacter = range.location > 0 ? (originText as NSString).substring(with: NSRange(location: range.location - 1, length: 1)) : "" // 입력 포인트 위치 글자 가져오기
             let separatedCharacters = previousCharacter.decomposedStringWithCanonicalMapping.unicodeScalars.map{ String($0) } // 글자를 자음과 모음으로 분리
                     
             if separatedCharacters == ["\0"] { // 커서가 가장 앞에 있는 경우
@@ -88,11 +88,17 @@ extension ViewController: UITextFieldDelegate {
         }()
         
         isUserTyping = result
+        
+        // 글자 수 초과 시 진동 피드백
+        if !result {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        }
+        
         return result
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        // 변경이 생김
+        // 입력 포인트 변경이 생김
         isChangedSelectionByUser = !isUserTyping  // 타이핑 중이 아닌 경우에만 체크
         isUserTyping = false    // 타이핑 종료
     }
@@ -126,7 +132,6 @@ extension String {
             return false
         }
     }
-    
     
     // 이중 모음이 되는지 확인
     func canDiphthong(with vowel: String) -> Bool {
