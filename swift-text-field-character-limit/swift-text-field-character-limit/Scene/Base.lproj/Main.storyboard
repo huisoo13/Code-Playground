@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l4C-oJ-U4R">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="swift_text_field_character_limit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="UsingDelegateViewController" customModule="swift_text_field_character_limit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,16 +31,140 @@
                             <constraint firstItem="0iT-I7-PkU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="gru-UU-aS2"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Delegate" selectedImage="1.lane" catalog="system" id="yf4-Sv-KQj"/>
                     <connections>
                         <outlet property="textField" destination="0iT-I7-PkU" id="6RB-6O-Mor"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="5"/>
+            <point key="canvasLocation" x="1063.3587786259541" y="4.9295774647887329"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Dyc-5Y-mYb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="l4C-oJ-U4R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="lane" catalog="system" id="CkP-Rp-Lpf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="AccentColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ZYY-j2-3YR"/>
+                        <segue destination="Q9e-9x-XFV" kind="relationship" relationship="viewControllers" id="QOP-w3-Ymf"/>
+                        <segue destination="AbM-dV-YeI" kind="relationship" relationship="viewControllers" id="ZaC-NN-T8U"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HsH-K4-jul" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.64122137404578" y="4.9295774647887329"/>
+        </scene>
+        <!--Event-->
+        <scene sceneID="1GT-h0-OdT">
+            <objects>
+                <viewController id="Q9e-9x-XFV" customClass="UsingEventViewController" customModule="swift_text_field_character_limit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vQw-qL-YQt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3tm-9Q-T6a">
+                                <rect key="frame" x="16" y="134" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AbR-U7-qZE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3tm-9Q-T6a" firstAttribute="leading" secondItem="AbR-U7-qZE" secondAttribute="leading" constant="16" id="2ic-qP-tHW"/>
+                            <constraint firstItem="3tm-9Q-T6a" firstAttribute="top" secondItem="AbR-U7-qZE" secondAttribute="top" constant="16" id="9Xj-Ob-wOU"/>
+                            <constraint firstItem="AbR-U7-qZE" firstAttribute="trailing" secondItem="3tm-9Q-T6a" secondAttribute="trailing" constant="16" id="NJr-WZ-QaR"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Event" selectedImage="2.lane" catalog="system" id="ykI-42-fQ8"/>
+                    <connections>
+                        <outlet property="textField" destination="3tm-9Q-T6a" id="hEN-Zp-l94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lrY-3V-SzF" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063" y="696"/>
+        </scene>
+        <!--Other-->
+        <scene sceneID="Y2i-cz-X9t">
+            <objects>
+                <viewController id="AbM-dV-YeI" customClass="OtherViewController" customModule="swift_text_field_character_limit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xrx-rC-OLc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GGj-fY-Zgv">
+                                <rect key="frame" x="16" y="134" width="361" height="36"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPn-mG-bAL" userLabel="Spacing">
+                                        <rect key="frame" x="0.0" y="0.0" width="8" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="8" id="WWa-Sq-tEw"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eA0-e5-Z5i">
+                                        <rect key="frame" x="16" y="0.0" width="296" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0 / 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHy-1t-U25" userLabel="Counter Label">
+                                        <rect key="frame" x="320" y="0.0" width="25" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UH6-Zl-DiA" userLabel="Spacing">
+                                        <rect key="frame" x="353" y="0.0" width="8" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="8" id="9hb-eE-emS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="OEA-AI-8QS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="q3v-hM-FsU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GGj-fY-Zgv" firstAttribute="top" secondItem="q3v-hM-FsU" secondAttribute="top" constant="16" id="Ngw-lt-pxx"/>
+                            <constraint firstItem="GGj-fY-Zgv" firstAttribute="leading" secondItem="q3v-hM-FsU" secondAttribute="leading" constant="16" id="YtI-uZ-GSS"/>
+                            <constraint firstItem="q3v-hM-FsU" firstAttribute="trailing" secondItem="GGj-fY-Zgv" secondAttribute="trailing" constant="16" id="yXA-1h-4A0"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Other" selectedImage="3.lane" catalog="system" id="M6W-sJ-sO7"/>
+                    <connections>
+                        <outlet property="containerView" destination="GGj-fY-Zgv" id="exI-XN-EaW"/>
+                        <outlet property="counterLabel" destination="vHy-1t-U25" id="7RM-dV-FaV"/>
+                        <outlet property="textField" destination="eA0-e5-Z5i" id="irC-db-zmH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QrH-15-jxA" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="1372"/>
         </scene>
     </scenes>
     <resources>
+        <image name="1.lane" catalog="system" width="128" height="97"/>
+        <image name="2.lane" catalog="system" width="128" height="97"/>
+        <image name="3.lane" catalog="system" width="128" height="97"/>
+        <image name="lane" catalog="system" width="128" height="97"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
