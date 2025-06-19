@@ -36,17 +36,18 @@ class Network {
         // 이전과 동일한 네트워크 환경이라면 return
         guard self.interfaceType != path.availableInterfaces.first?.type else { return }
         
-        if path.usesInterfaceType(.wifi) {
+        switch true {
+        case path.usesInterfaceType(.wifi):
             print("Wi-Fi를 이용하여 네트워크에 연결되었습니다.")
-        } else if path.usesInterfaceType(.cellular) {
+        case path.usesInterfaceType(.cellular):
             print("셀룰러 데이터를 이용하여 네트워크에 연결되었습니다.")
-        } else if path.usesInterfaceType(.wiredEthernet) {
+        case path.usesInterfaceType(.wiredEthernet):
             print("유선 이더넷을 이용하여 네트워크에 연결되었습니다.")
-        } else if path.usesInterfaceType(.loopback) {
+        case path.usesInterfaceType(.loopback):
             print("루프백을 이용하여 네트워크에 연결되었습니다.")
-        } else if path.usesInterfaceType(.other) {
+        case path.usesInterfaceType(.other):
             print("기타 방법을 이용하여 네트워크에 연결되었습니다.")
-        } else {
+        default:
             print("네트워크에 연결할 수 없습니다.")
         }
         
