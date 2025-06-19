@@ -9,7 +9,7 @@ import Foundation
 import Security
 
 enum KeychainManager {
-    static let service = "com.cplabs.woonmong"
+    static let service = "com.bundle.id"
 
     static func write(key: String, value: String) {
         if let data = value.data(using: .utf8) {
