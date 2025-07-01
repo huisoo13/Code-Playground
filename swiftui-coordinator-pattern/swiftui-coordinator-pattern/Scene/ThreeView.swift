@@ -21,7 +21,7 @@ struct ThreeView: View {
                                 .custom(
                                     imageName: "circle",
                                     action: {
-                                        coordinator.present(.fullScreenContext)
+                                        coordinator.present(.overCurrentContext)
                                     }
                                 )
                              ]

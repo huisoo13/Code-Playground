@@ -14,7 +14,7 @@ class Coordinator {
     var path: NavigationPath = NavigationPath()
     var sheet: Sheet?
     var fullScreenCover: FullScreenCover?
-    var overFullScreen: OverFullScreen?
+    var overCurrentContext: OverCurrentContext?
     
     func push(_ destination: Page) {
         path.append(destination)
@@ -28,18 +28,18 @@ class Coordinator {
         fullScreenCover = destination
     }
     
-    func present(_ destination: OverFullScreen) {
-        overFullScreen = destination
+    func present(_ destination: OverCurrentContext) {
+        overCurrentContext = destination
     }
     
     func dismiss() {
-        switch (fullScreenCover, sheet, overFullScreen, path.isEmpty) {
+        switch (fullScreenCover, sheet, overCurrentContext, path.isEmpty) {
         case (.some, _, _, _): // fullScreenCover가 있는 경우
             fullScreenCover = nil
         case (_, .some, _, _): // sheet가 있는 경우
             sheet = nil
         case (_, _, .some, _): // overFullScreen가 있는 경우
-            overFullScreen = nil
+            overCurrentContext = nil
         case (.none, .none, .none, false): // fullScreenCover와 sheet가 없고, path가 있는 경우
             path.removeLast()
         case (.none, .none, .none, true):  // 모두 없는 경우

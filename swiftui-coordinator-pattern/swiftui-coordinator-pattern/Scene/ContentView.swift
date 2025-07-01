@@ -56,7 +56,7 @@ struct ContentView: View {
                 }
 
                 Button {
-                    coordinator.present(.fullScreenContext)
+                    coordinator.present(.overCurrentContext)
                 } label: {
                     Text("Context")
                         .frame(width: 64, height: 64)

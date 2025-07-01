@@ -1,5 +1,5 @@
 //
-//  OverFullScreenModifier.swift
+//  OverCurrentContextModifier.swift
 //  swiftui-coordinator-pattern
 //
 //  Created by Huisoo on 6/27/25.
@@ -8,9 +8,9 @@
 import SwiftUI
 
 extension View {
-    func overFullScreen<Item: Identifiable, Content: View>(item: Binding<Item?>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping (Item) -> Content) -> some View {
+    func overCurrentContext<Item: Identifiable, Content: View>(item: Binding<Item?>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping (Item) -> Content) -> some View {
         modifier(
-            OverFullScreenModifier(
+            OverCurrentContextModifier(
                 item: item,
                 onDismiss: onDismiss,
                 popupContent: content
@@ -19,7 +19,7 @@ extension View {
     }
 }
 
-struct OverFullScreenModifier<Item: Identifiable, PopupContent: View>: ViewModifier {
+struct OverCurrentContextModifier<Item: Identifiable, PopupContent: View>: ViewModifier {
 
     @Environment(Coordinator.self) var coordinator
 
