@@ -30,8 +30,8 @@ struct NavigationContainer<Content: View>: View {
                     ViewFactory.view(fullScreenCover, parentCoordinator: coordinator)
                 }
         }
-        .fullScreenContext(item: $coordinator.fullScreenContext) { fullScreenContext in
-            ViewFactory.view(fullScreenContext, parentCoordinator: coordinator)
+        .overFullScreen(item: $coordinator.overFullScreen) { overFullScreen in
+            ViewFactory.view(overFullScreen, parentCoordinator: coordinator)
         }
         .environment(coordinator)
     }

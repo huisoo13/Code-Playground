@@ -25,10 +25,10 @@ enum FullScreenCover: String, Identifiable {
     case fullScreenCover
 }
 
-enum FullScreenContext: String, Identifiable {
+enum OverFullScreen: String, Identifiable {
     var id: String { self.rawValue }
     
-    case fullScreenContext
+    case overFullScreen
 }
 
 struct ViewFactory {
@@ -67,9 +67,9 @@ struct ViewFactory {
     }
     
     @ViewBuilder
-    static func view(_ fullScreenContext: FullScreenContext, parentCoordinator: Coordinator? = nil) -> some View {
-        switch fullScreenContext {
-        case .fullScreenContext:
+    static func view(_ overFullScreen: OverFullScreen, parentCoordinator: Coordinator? = nil) -> some View {
+        switch overFullScreen {
+        case .overFullScreen:
             TwoView()
         }
     }
