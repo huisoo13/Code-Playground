@@ -1,6 +1,6 @@
 //
 //  NavigationContainer.swift
-//  SwiftUI-Playground
+//  swiftui-coordinator-pattern
 //
 //  Created by Huisoo on 6/24/25.
 //
@@ -9,10 +9,10 @@ import SwiftUI
 
 struct NavigationContainer<Content: View>: View {
     
-    @State private var coordinator = Coordinator()
+    @State private var coordinator: NavigationCoordinator = NavigationCoordinator()
     
     private var content: Content
-    init(parentCoordinator: Coordinator? = nil, @ViewBuilder content: () -> Content) {
+    init(parentCoordinator: NavigationCoordinator? = nil, @ViewBuilder content: () -> Content) {
         self.content = content()
         self.coordinator.parentCoordinator = parentCoordinator
     }
@@ -20,18 +20,18 @@ struct NavigationContainer<Content: View>: View {
     var body: some View {
         NavigationStack(path: $coordinator.path) {
             content
-                .navigationDestination(for: Page.self) { page in
-                    ViewFactory.view(page)
+                .navigationDestination(for: AnyHashable.self) { path in
+                    ViewFactory.view(path)
                 }
                 .sheet(item: $coordinator.sheet) { sheet in
-                    ViewFactory.view(sheet, parentCoordinator: coordinator)
+                    ViewFactory.sheet(sheet, parentCoordinator: coordinator)
                 }
                 .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
-                    ViewFactory.view(fullScreenCover, parentCoordinator: coordinator)
+                    ViewFactory.fullScreenCover(fullScreenCover, parentCoordinator: coordinator)
                 }
         }
         .overCurrentContext(item: $coordinator.overCurrentContext) { overCurrentContext in
-            ViewFactory.view(overCurrentContext, parentCoordinator: coordinator)
+            ViewFactory.overCurrentContext(overCurrentContext, parentCoordinator: coordinator)
         }
         .environment(coordinator)
     }

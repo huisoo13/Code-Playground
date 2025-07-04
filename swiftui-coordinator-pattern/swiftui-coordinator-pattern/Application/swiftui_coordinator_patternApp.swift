@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct swiftui_coordinator_patternApp: App {
     
+    var appCoordinator: AppCoordinator = AppCoordinator()
+    
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
@@ -26,9 +28,8 @@ struct swiftui_coordinator_patternApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationContainer {
-                ContentView()
-            }
+            ContentView()
+                .environment(appCoordinator)
         }
     }
 }

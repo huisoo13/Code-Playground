@@ -1,76 +1,52 @@
 //
 //  ViewFactory.swift
-//  SwiftUI-Playground
+//  swiftui-coordinator-pattern
 //
 //  Created by Huisoo on 6/24/25.
 //
 
 import SwiftUI
 
-enum Page: Hashable {
-    case one
-    case two
-    case three(_ text: String)
-}
-
-enum Sheet: String, Identifiable {
-    var id: String { self.rawValue }
-    
-    case sheet
-}
-
-enum FullScreenCover: String, Identifiable {
-    var id: String { self.rawValue }
-    
-    case fullScreenCover
-}
-
-enum OverCurrentContext: String, Identifiable {
-    var id: String { self.rawValue }
-    
-    case overCurrentContext
-}
-
 struct ViewFactory {
     @ViewBuilder
-    static func view(_ page: Page) -> some View {
-        switch page {
-        case .one:
-            OneView()
-        case .two:
-            TwoView()
-        case .three(let text):
-            ThreeView(text: text)
-                .background(.red)
+    static func view(_ path: AnyHashable) -> some View {
+        switch path {
+        case let path as Splash.Path:
+            Splash.ViewFactory.view(path)
+        case let path as Login.Path:
+            Login.ViewFactory.view(path)
+        case let path as Main.Path:
+            Main.ViewFactory.view(path)
+        default:
+            fatalError("Unhandled Path type in \(#function). Please register all expected Path cases.")
         }
     }
     
     @ViewBuilder
-    static func view(_ sheet: Sheet, parentCoordinator: Coordinator? = nil) -> some View {
-        switch sheet {
-        case .sheet:
-            NavigationContainer(parentCoordinator: parentCoordinator) {
-                TwoView()
-                    .presentationDetents([.height(300)])
-                    .presentationDragIndicator(.visible)
-            }
+    static func sheet(_ sheet: AnyIdentifiable, parentCoordinator: NavigationCoordinator? = nil) -> some View {
+        switch sheet.value {
+        case let sheet as Login.Sheet:
+            Login.ViewFactory.sheet(sheet, parentCoordinator: parentCoordinator)
+        default:
+            fatalError("Unhandled Sheet type in \(#function). Please register all expected Sheet cases.")
         }
     }
     
     @ViewBuilder
-    static func view(_ fullScreenCover: FullScreenCover, parentCoordinator: Coordinator? = nil) -> some View {
-        switch fullScreenCover {
-        case .fullScreenCover:
-            TwoView()
-            // .presentationBackground(.clear) // 배경 지우는 방법
+    static func fullScreenCover(_ fullScreenCover: AnyIdentifiable, parentCoordinator: NavigationCoordinator? = nil) -> some View {
+        switch fullScreenCover.value {
+        default:
+            fatalError("Unhandled FullScreenCover type in \(#function). Please register all expected FullScreenCover cases.")
         }
     }
     
     @ViewBuilder
-    static func view(_ overCurrentContext: OverCurrentContext, parentCoordinator: Coordinator? = nil) -> some View {
-        switch overCurrentContext {
-        case .overCurrentContext:
-            TwoView()
+    static func overCurrentContext(_ overCurrentContext: AnyIdentifiable, parentCoordinator: NavigationCoordinator? = nil) -> some View {
+        switch overCurrentContext.value {
+        case let overCurrentContext as Main.OverCurrentContext:
+            Main.ViewFactory.overCurrentContext(overCurrentContext, parentCoordinator: parentCoordinator)
+        default:
+            fatalError("Unhandled OverCurrentContext type in \(#function). Please register all expected OverCurrentContext cases.")
         }
     }
 }

@@ -9,81 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @Environment(Coordinator.self) var coordinator
-
+    @Environment(AppCoordinator.self) var appCoordinator
+    
     var body: some View {
         ZStack {
-            Color.gray.opacity(0.1)
-            
-            HStack {
-                Button {
-                    coordinator.push(.one)
-                } label: {
-                    Text("Push")
-                    .frame(width: 64, height: 64)
-                    .background()
-                    .cornerRadius(8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.blue, lineWidth: 1)
-                    )
+            switch appCoordinator.root {
+            case .splash:
+                ViewFactory.view(Splash.Path.splash)
+                    .transition(.asymmetric(insertion: .move(edge: .trailing),
+                                            removal: .move(edge: .leading)))
+            case .login:
+                NavigationContainer {
+                    ViewFactory.view(Login.Path.login)
                 }
-                
-                Button {
-                    coordinator.present(.sheet)
-                } label: {
-                    Text("Sheet")
-                    .frame(width: 64, height: 64)
-                    .background()
-                    .cornerRadius(8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.blue, lineWidth: 1)
-                    )
+                .transition(.asymmetric(insertion: .move(edge: .trailing),
+                                        removal: .move(edge: .leading)))
+            case .main:
+                NavigationContainer {
+                    ViewFactory.view(Main.Path.home)
                 }
-                
-                Button {
-                    coordinator.present(.fullScreenCover)
-                } label: {
-                    Text("Cover")
-                        .frame(width: 64, height: 64)
-                        .background()
-                        .cornerRadius(8)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.blue, lineWidth: 1)
-                        )
-                }
-
-                Button {
-                    coordinator.present(.overCurrentContext)
-                } label: {
-                    Text("Context")
-                        .frame(width: 64, height: 64)
-                        .background()
-                        .cornerRadius(8)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.blue, lineWidth: 1)
-                        )
-                }
+                .id(UUID()) // 해당 뷰로 전환 시 무조건 재생성
+                .transition(.asymmetric(insertion: .move(edge: .trailing),
+                                        removal: .move(edge: .leading)))
             }
         }
-        .edgesIgnoringSafeArea(.bottom)
-        .navigationStyle("TITLE",
-                         rightToolBarItems: [
-                            .custom(
-                                imageName: "circle",
-                                action: {
-                                    coordinator.push(.one)
-                                }
-                            )
-                         ]
-        )
     }
 }
 
 #Preview {
     ContentView()
-        .environment(Coordinator())
+        .environment(AppCoordinator())
 }
