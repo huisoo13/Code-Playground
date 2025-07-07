@@ -4,6 +4,7 @@
 //
 //  Created by Huisoo on 7/7/25.
 //
+// 참고 링크
 // https://reactnative.dev/docs/integration-with-existing-apps
 
 import UIKit
