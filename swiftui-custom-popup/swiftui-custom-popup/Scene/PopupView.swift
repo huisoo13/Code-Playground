@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopupView: View {
-    @Binding var item: FullScreenContext?
+    @Binding var item: OverScreenContext?
     
     var body: some View {
         VStack {
@@ -29,7 +29,7 @@ struct PopupView: View {
 }
 
 #Preview {
-    @Previewable @State var item: FullScreenContext? = .fullScreenContext
+    @Previewable @State var item: OverScreenContext? = .overScreenContext
     
     PopupView(item: $item)
 }

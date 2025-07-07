@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-enum FullScreenContext: String, Identifiable {
+enum OverScreenContext: String, Identifiable {
     var id: String { self.rawValue }
     
-    case fullScreenContext
+    case overScreenContext
 }
 
 struct ContentView: View {
     
-    @State private var fullScreenContext: FullScreenContext?
+    @State private var overScreenContext: OverScreenContext?
     
     var body: some View {
         NavigationStack {
             Button(action: {
-                fullScreenContext = .fullScreenContext
+                overScreenContext = .overScreenContext
             }, label: {
                 VStack {
                     Image(systemName: "globe")
@@ -31,16 +31,16 @@ struct ContentView: View {
             })
         }
         .padding()
-        .fullScreenContext(item: $fullScreenContext) { fullScreenContext in
-            view(fullScreenContext)
+        .overScreenContext(item: $overScreenContext) { overScreenContext in
+            view(overScreenContext)
         }
     }
     
     @ViewBuilder
-    func view(_ fullScreenContext: FullScreenContext) -> some View {
-        switch fullScreenContext {
-        case .fullScreenContext:
-            PopupView(item: $fullScreenContext)
+    func view(_ overScreenContext: OverScreenContext) -> some View {
+        switch overScreenContext {
+        case .overScreenContext:
+            PopupView(item: $overScreenContext)
         }
     }
 }

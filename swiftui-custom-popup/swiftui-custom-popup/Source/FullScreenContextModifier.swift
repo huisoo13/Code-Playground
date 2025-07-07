@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FullScreenContextModifier<Item: Identifiable, PopupContent: View>: ViewModifier {
+struct OverScreenContextModifier<Item: Identifiable, PopupContent: View>: ViewModifier {
 
     @Binding var item: Item?
     
@@ -57,9 +57,9 @@ struct FullScreenContextModifier<Item: Identifiable, PopupContent: View>: ViewMo
 }
 
 extension View {
-    func fullScreenContext<Item: Identifiable, Content: View>(item: Binding<Item?>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping (Item) -> Content) -> some View {
+    func overScreenContext<Item: Identifiable, Content: View>(item: Binding<Item?>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping (Item) -> Content) -> some View {
         modifier(
-            FullScreenContextModifier(
+            OverScreenContextModifier(
                 item: item,
                 onDismiss: onDismiss,
                 popupContent: content
