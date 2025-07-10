@@ -7,11 +7,10 @@
 
 import React
 import React_RCTAppDelegate
-import ReactAppDependencyProvider
 
 class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
     
-    weak var callbackManagerDelegate: CallbackManagerDelegate?
+    weak var reactNativeModuleDelegate: ReactNativeModuleDelegate?
 
     override func sourceURL(for bridge: RCTBridge) -> URL? {
         self.bundleURL()
@@ -19,15 +18,23 @@ class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
 
     override func bundleURL() -> URL? {
         #if DEBUG
-        RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+        // 시뮬레이터 일때
+        return RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
+        
+        // 실기기 일때
+        // let IP = "http://12.345.67.89:8081" // Mac의 IP
+        // let url = "\(IP)/index.bundle?platform=ios&dev=true&minify=false&inlineSourceMap=true"
+        // return URL(string: url)
         #else
-        Bundle.main.url(forResource: "main", withExtension: "jsbundle")
+        return Bundle.main.url(forResource: "main", withExtension: "jsbundle")
         #endif
     }
 
     override func extraModules(for bridge: RCTBridge) -> [RCTBridgeModule] {
-        let callbackManager = CallbackManager()
-        callbackManager.delegate = callbackManagerDelegate
-        return [callbackManager]
+        let reactNativeModule = ReactNativeModule()
+        reactNativeModule.delegate = reactNativeModuleDelegate
+        return [reactNativeModule]
     }
+    
+    
 }

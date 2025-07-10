@@ -20,8 +20,12 @@ class ReactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupReactNative()
+    }
+    
+    private func setupReactNative() {
         let delegate = ReactNativeDelegate()
-        delegate.callbackManagerDelegate = self
+        delegate.reactNativeModuleDelegate = self
         self.reactNativeFactoryDelegate = delegate
         reactNativeFactoryDelegate!.dependencyProvider = RCTAppDependencyProvider()
         reactNativeFactory = RCTReactNativeFactory(delegate: reactNativeFactoryDelegate!)
@@ -33,9 +37,9 @@ class ReactViewController: UIViewController {
     }
 }
 
-extension ReactViewController: CallbackManagerDelegate {
-    func didReceiveCallback(value: String) {
-        print(#function, value)
+extension ReactViewController: ReactNativeModuleDelegate {
+    func process(_ input: String) {
+        print("SWIFT", #function, input)
     }
 }
 
