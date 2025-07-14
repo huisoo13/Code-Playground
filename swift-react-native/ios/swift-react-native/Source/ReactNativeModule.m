@@ -14,5 +14,6 @@ RCT_EXTERN_METHOD(timer)
 RCT_EXTERN_METHOD(callback:(NSString *)input
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
-
+RCT_EXTERN_METHOD(call:(NSString *)method
+                  parameters:(NSDictionary *)parameters)
 @end

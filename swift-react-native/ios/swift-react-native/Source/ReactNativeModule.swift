@@ -19,7 +19,7 @@ class ReactNativeModule: RCTEventEmitter {
     
     // EventEmitter로 보낼 이벤트
     override func supportedEvents() -> [String]! {
-        return ["onTimerTick"]
+        return ["onTimerTick", "call"]
     }
     
     // 메인 스레드에서 실행
@@ -61,5 +61,11 @@ class ReactNativeModule: RCTEventEmitter {
                 }
             }
         }
+    }
+    
+    @objc func call(_ method: String, parameters: [String: Any]) {
+        var body: [String: Any] = ["method": method]
+        body.merge(parameters) { (_, new) in new }
+        sendEvent(withName: "call", body: body)
     }
 }

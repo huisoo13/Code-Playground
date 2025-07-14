@@ -55,6 +55,10 @@ function App(props): React.JSX.Element {
             console.error(error);
         }
     };
+    
+    const test = () => {
+        console.log("TEST")
+    }
 
     
     return (
@@ -77,42 +81,43 @@ function App(props): React.JSX.Element {
                     <Text style={ styles.button }>실행</Text>
                 </TouchableOpacity>
             </View>
+            <Text>{ test() }</Text> // 생성될때 시작하자마자 함수를 실행
         </View>
     );
 }
 
-    const styles = StyleSheet.create({
-        container: {
-          padding: 16
-        },
-        title: {
-            fontSize: 16,
-            fontWeight: '600',
-            marginBottom: 16,
-        },
-        description: {
-            fontSize: 14,
-            fontWeight: '400',
-        },
-        bold: {
-            fontWeight: '700',
-        },
-        button: {
-            fontSize: 14,
-            fontWeight: '600',
-            color: '#05F'
-        },
-        hStack: {
-            flexDirection: 'row',            // 수평 정렬
-            justifyContent: 'space-between', // 양쪽 끝 정렬 + 중간 여백
-            alignItems: 'center',            // 수직 중앙 정렬
-            padding: 16,
-            borderWidth: 1,            // 테두리 두께
-            borderColor: '#999',       // 테두리 색상
-            borderRadius: 10,          // 둥근 모서리 반경
-            backgroundColor: '#f9f9f9' // 배경색 (선택 사항)
+const styles = StyleSheet.create({
+    container: {
+      padding: 16
+    },
+    title: {
+        fontSize: 16,
+        fontWeight: '600',
+        marginBottom: 16,
+    },
+    description: {
+        fontSize: 14,
+        fontWeight: '400',
+    },
+    bold: {
+        fontWeight: '700',
+    },
+    button: {
+        fontSize: 14,
+        fontWeight: '600',
+        color: '#05F'
+    },
+    hStack: {
+        flexDirection: 'row',            // 수평 정렬
+        justifyContent: 'space-between', // 양쪽 끝 정렬 + 중간 여백
+        alignItems: 'center',            // 수직 중앙 정렬
+        padding: 16,
+        borderWidth: 1,            // 테두리 두께
+        borderColor: '#999',       // 테두리 색상
+        borderRadius: 10,          // 둥근 모서리 반경
+        backgroundColor: '#f9f9f9' // 배경색 (선택 사항)
 
-        },
-    });
+    },
+});
                     
 export default App;
