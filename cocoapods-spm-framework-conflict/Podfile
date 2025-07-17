@@ -1,0 +1,79 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '15.0'
+
+# ================================
+# Pod 구성
+# ================================
+
+target '{Target Name}' do
+  # Pods for {Target Name}
+  
+  # pod 'Firebase'
+end
+
+# ================================
+# Pod 설치 후 설정 (post_install)
+# ================================
+
+post_install do |installer|
+  # 중복 링크 제거 설정
+  auto_update_target(['{Target Name}'], installer)
+end
+
+# ================================
+# 중복 링크 제거 유틸리티 함수
+# ================================
+
+# SPM과 Cocoapods에 동일한 framework가 있는 경우, 발생하는 에러 (Firebase와 GoogleAnalytics)
+# Class {Class Name} is implemented in both .../Frameworks/{Framework Name}.framework/{Framework Name}... One of the two will be used. Which one is undefined.
+# 빌드는 되지만 Debugging message 출력되며 케이스에 따라 문제가 발생 가능
+
+# 해결방법
+# Pods-{Target Name} 파일에서 ‘OTHER_LDFLAGS’ 에 있는 '-framework {Framework Name}'을 제거하여 해결
+# pod install 또는 update 마다 제거를 해야하므로 자동으로 제거를 하기 위해 아래 코드 추가
+def auto_update_target(app_target_names, installer)
+  # words =  ['-framework {Framework Name}', ...]
+  words = ['-framework "FBLPromises"', '-framework "GoogleDataTransport"', '-framework "GoogleUtilities"']
+  handle_app_targets(app_target_names.map { |str| 'Pods-' + str },
+                     words,
+                     installer)
+end
+
+def find_line_with_start(str, start)
+  str.each_line do |line|
+    if line.start_with?(start)
+      return line
+    end
+  end
+  return nil
+end
+
+def remove_words(str, words)
+  new_str = str
+  words.each do |word|
+    new_str = new_str.sub(word, '')
+  end
+  return new_str
+end
+
+def handle_app_targets(names, words, installer)
+  installer.pods_project.targets.each do |target|
+    if names.index(target.name) == nil
+      next
+    end
+    puts "Updating #{target.name} OTHER_LDFLAGS"
+    target.build_configurations.each do |config|
+      xcconfig_path = config.base_configuration_reference.real_path
+      xcconfig = File.read(xcconfig_path)
+      old_line = find_line_with_start(xcconfig, "OTHER_LDFLAGS")
+      
+      if old_line == nil
+        next
+      end
+      new_line = remove_words(old_line, words)
+      
+      new_xcconfig = xcconfig.sub(old_line, new_line)
+      File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
+    end
+  end
+end
