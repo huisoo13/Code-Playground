@@ -19,6 +19,9 @@ struct ContentView: View {
     @State private var isShowingAddProjectAlert = false
     @State private var newProjectName = ""
 
+    // DebugView sheet 제어용 상태값
+    @State private var isShowingDebugView = false
+
     var body: some View {
         NavigationStack {
             Group {
@@ -52,6 +55,14 @@ struct ContentView: View {
             }
             .navigationTitle("내 프로젝트")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        isShowingDebugView = true
+                    } label: {
+                        Label("Debug", systemImage: "ladybug")
+                    }
+                }
+
                 ToolbarItem {
                     // 새 프로젝트를 추가하는 버튼
                     Button {
@@ -71,6 +82,10 @@ struct ContentView: View {
                 }
             } message: {
                 Text("새로운 프로젝트의 이름을 입력하세요.")
+            }
+            .sheet(isPresented: $isShowingDebugView) {
+                DebugView()
+                    .presentationDetents([.medium, .large])
             }
         }
     }
