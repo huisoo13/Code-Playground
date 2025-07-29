@@ -7,32 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		5707320A2DADDBB4007CC35A /* swift-coordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-coordinator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		571855A52E385009008FAC3E /* swiftui-foundatioin-models-framework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swiftui-foundatioin-models-framework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5707321C2DADDBB6007CC35A /* Exceptions for "swift-coordinator" folder in "swift-coordinator" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 570732092DADDBB4007CC35A /* swift-coordinator */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5707320C2DADDBB4007CC35A /* swift-coordinator */ = {
+		571855A72E385009008FAC3E /* swiftui-foundatioin-models-framework */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5707321C2DADDBB6007CC35A /* Exceptions for "swift-coordinator" folder in "swift-coordinator" target */,
-			);
-			path = "swift-coordinator";
+			path = "swiftui-foundatioin-models-framework";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		570732072DADDBB4007CC35A /* Frameworks */ = {
+		571855A22E385009008FAC3E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		570732012DADDBB4007CC35A = {
+		5718559C2E385009008FAC3E = {
 			isa = PBXGroup;
 			children = (
-				5707320C2DADDBB4007CC35A /* swift-coordinator */,
-				5707320B2DADDBB4007CC35A /* Products */,
+				571855A72E385009008FAC3E /* swiftui-foundatioin-models-framework */,
+				571855A62E385009008FAC3E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5707320B2DADDBB4007CC35A /* Products */ = {
+		571855A62E385009008FAC3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5707320A2DADDBB4007CC35A /* swift-coordinator.app */,
+				571855A52E385009008FAC3E /* swiftui-foundatioin-models-framework.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		570732092DADDBB4007CC35A /* swift-coordinator */ = {
+		571855A42E385009008FAC3E /* swiftui-foundatioin-models-framework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5707321D2DADDBB6007CC35A /* Build configuration list for PBXNativeTarget "swift-coordinator" */;
+			buildConfigurationList = 571855B02E38500B008FAC3E /* Build configuration list for PBXNativeTarget "swiftui-foundatioin-models-framework" */;
 			buildPhases = (
-				570732062DADDBB4007CC35A /* Sources */,
-				570732072DADDBB4007CC35A /* Frameworks */,
-				570732082DADDBB4007CC35A /* Resources */,
+				571855A12E385009008FAC3E /* Sources */,
+				571855A22E385009008FAC3E /* Frameworks */,
+				571855A32E385009008FAC3E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5707320C2DADDBB4007CC35A /* swift-coordinator */,
+				571855A72E385009008FAC3E /* swiftui-foundatioin-models-framework */,
 			);
-			name = "swift-coordinator";
+			name = "swiftui-foundatioin-models-framework";
 			packageProductDependencies = (
 			);
-			productName = "swift-coordinator";
-			productReference = 5707320A2DADDBB4007CC35A /* swift-coordinator.app */;
+			productName = "swiftui-foundatioin-models-framework";
+			productReference = 571855A52E385009008FAC3E /* swiftui-foundatioin-models-framework.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		570732022DADDBB4007CC35A /* Project object */ = {
+		5718559D2E385009008FAC3E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1630;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					570732092DADDBB4007CC35A = {
-						CreatedOnToolsVersion = 16.3;
+					571855A42E385009008FAC3E = {
+						CreatedOnToolsVersion = 26.0;
 					};
 				};
 			};
-			buildConfigurationList = 570732052DADDBB4007CC35A /* Build configuration list for PBXProject "swift-coordinator" */;
+			buildConfigurationList = 571855A02E385009008FAC3E /* Build configuration list for PBXProject "swiftui-foundatioin-models-framework" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 570732012DADDBB4007CC35A;
+			mainGroup = 5718559C2E385009008FAC3E;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 5707320B2DADDBB4007CC35A /* Products */;
+			productRefGroup = 571855A62E385009008FAC3E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				570732092DADDBB4007CC35A /* swift-coordinator */,
+				571855A42E385009008FAC3E /* swiftui-foundatioin-models-framework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		570732082DADDBB4007CC35A /* Resources */ = {
+		571855A32E385009008FAC3E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		570732062DADDBB4007CC35A /* Sources */ = {
+		571855A12E385009008FAC3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,67 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5707321E2DADDBB6007CC35A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JF82D77C4R;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "swift-coordinator/Info.plist";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.huisoo.swift-coordinator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		5707321F2DADDBB6007CC35A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JF82D77C4R;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "swift-coordinator/Info.plist";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.huisoo.swift-coordinator";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		570732202DADDBB6007CC35A /* Debug */ = {
+		571855AE2E38500B008FAC3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -233,7 +160,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = C7YYJHX9GB;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -251,7 +177,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -262,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		570732212DADDBB6007CC35A /* Release */ = {
+		571855AF2E38500B008FAC3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -297,7 +223,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = C7YYJHX9GB;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -309,7 +234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -319,28 +244,90 @@
 			};
 			name = Release;
 		};
+		571855B12E38500B008FAC3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huisoo.swiftui-foundatioin-models-framework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		571855B22E38500B008FAC3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huisoo.swiftui-foundatioin-models-framework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		570732052DADDBB4007CC35A /* Build configuration list for PBXProject "swift-coordinator" */ = {
+		571855A02E385009008FAC3E /* Build configuration list for PBXProject "swiftui-foundatioin-models-framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				570732202DADDBB6007CC35A /* Debug */,
-				570732212DADDBB6007CC35A /* Release */,
+				571855AE2E38500B008FAC3E /* Debug */,
+				571855AF2E38500B008FAC3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5707321D2DADDBB6007CC35A /* Build configuration list for PBXNativeTarget "swift-coordinator" */ = {
+		571855B02E38500B008FAC3E /* Build configuration list for PBXNativeTarget "swiftui-foundatioin-models-framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5707321E2DADDBB6007CC35A /* Debug */,
-				5707321F2DADDBB6007CC35A /* Release */,
+				571855B12E38500B008FAC3E /* Debug */,
+				571855B22E38500B008FAC3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 570732022DADDBB4007CC35A /* Project object */;
+	rootObject = 5718559D2E385009008FAC3E /* Project object */;
 }
