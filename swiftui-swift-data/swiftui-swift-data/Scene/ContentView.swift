@@ -94,7 +94,7 @@ struct ContentView: View {
     private func addProject() {
         guard !newProjectName.isEmpty else { return }
 
-        // 💡 FetchDescriptor로 중복된 이름이 있는지 확인
+        // FetchDescriptor로 중복된 이름이 있는지 확인
         let descriptor = FetchDescriptor<Project>(predicate: #Predicate { $0.name == newProjectName })
         
         do {

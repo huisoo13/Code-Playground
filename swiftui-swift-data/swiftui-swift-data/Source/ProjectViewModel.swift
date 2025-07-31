@@ -10,13 +10,10 @@ import SwiftUI
 
 @Observable
 class ProjectViewModel {
-    // 1. UI 상태값 (UI State Values)
     var searchTerm: String = ""
     var isShowingAddTaskSheet: Bool = false
     
-    // 2. 프레젠테이션 로직 (Presentation Logic)
     // 검색어(searchTerm)를 기반으로 할 일 목록을 필터링하여 보여줌
-    // ✅ (수정) 순수한 로직으로 변경: Task 배열을 직접 받아 필터링 및 정렬
     func filteredTasks(_ tasks: [Task]) -> [Task] {
         let filtered = searchTerm.isEmpty
             ? tasks
@@ -26,7 +23,7 @@ class ProjectViewModel {
         return filtered.sorted { $0.dueDate < $1.dueDate }
     }
     
-    // 남은 기한을 보기 좋게 문자열로 변환 (프레젠테이션 로직)
+    // 남은 기한을 보기 좋게 문자열로 변환
     func formattedDueDate(from date: Date) -> String {
         let calendar = Calendar.current
         if calendar.isDateInToday(date) {
@@ -46,7 +43,7 @@ class ProjectViewModel {
         }
     }
     
-    // 우선순위에 따라 색상을 반환 (프레젠테이션 로직)
+    // 우선순위에 따라 색상을 반환
     func colorForPriority(_ priority: Priority) -> Color {
         switch priority {
         case .low: .gray

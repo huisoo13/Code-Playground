@@ -16,7 +16,6 @@ struct DebugView: View {
     var body: some View {
         NavigationStack {
             List {
-                // --- 프로젝트 섹션 ---
                 Section("Projects (\(projects.count)개)") {
                     if projects.isEmpty {
                         Text("저장된 프로젝트가 없습니다.")
@@ -39,7 +38,6 @@ struct DebugView: View {
                     }
                 }
                 
-                // --- 작업 섹션 ---
                 Section("Tasks (\(tasks.count)개)") {
                     if tasks.isEmpty {
                         Text("저장된 작업이 없습니다.")
