@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@Observable
+@MainActor @Observable
 class NavigationCoordinator {
     weak var parentCoordinator: NavigationCoordinator?
     

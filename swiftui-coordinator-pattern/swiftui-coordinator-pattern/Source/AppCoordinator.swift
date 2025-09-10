@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@Observable
+@MainActor @Observable
 class AppCoordinator {
     enum Root {
         case splash

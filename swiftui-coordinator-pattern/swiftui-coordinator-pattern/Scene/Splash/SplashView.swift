@@ -13,11 +13,9 @@ struct SplashView: View {
 
     var body: some View {
         Text("SPLASH")
-            .onAppear {
-                Task { @MainActor in
-                    try? await Task.sleep(for: .seconds(2))
-                    appCoordinator.set(.login)
-                }
+            .task { @MainActor in
+                try? await Task.sleep(for: .seconds(2))
+                appCoordinator.set(.login)
             }
     }
 }
