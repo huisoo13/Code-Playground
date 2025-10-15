@@ -42,7 +42,7 @@ struct ContentView: View {
                 }
                 isGenerating = true
                 for try await chunk in response {
-                    self.wishListItem = chunk.compactMap {
+                    self.wishListItem = chunk.content.compactMap {
                         guard let id = $0.id, let task = $0.text else {
                             return nil
                         }
@@ -52,10 +52,19 @@ struct ContentView: View {
                 isGenerating = false
             } catch {
                 print(error.localizedDescription)
+                foo()
                 isGenerating = false
             }
         }
     }
+    
+    private var model = SystemLanguageModel.default
+
+    func foo() {
+        print(model.availability)
+
+    }
+    
 }
 
 #Preview {
