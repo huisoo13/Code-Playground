@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PopupView: View {
 
-    @Environment(NavigationCoordinator.self) var coordinator
+    @Environment(AppCoordinator.self) var appCoordinator
 
     var body: some View {
         VStack {
@@ -21,12 +21,12 @@ struct PopupView: View {
         .background()
         .padding(.horizontal, 20)
         .onTapGesture {
-            coordinator.dismiss()
+            appCoordinator.dismiss()
         }
     }
 }
 
 #Preview {
     PopupView()
-        .environment(NavigationCoordinator())
+        .environment(AppCoordinator())
 }

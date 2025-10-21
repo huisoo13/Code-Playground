@@ -9,12 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Environment(NavigationCoordinator.self) var navigationCoordinator
+    @Environment(AppCoordinator.self) var appCoordinator
 
     var body: some View {
         VStack(spacing: 16) {
             Button {
-                navigationCoordinator.push(Main.Path.setting)
+                appCoordinator.push(Main.Path.setting)
             } label: {
                 Text("PUSH SETTING")
             }
@@ -23,7 +23,7 @@ struct HomeView: View {
                 .frame(height: 1)
 
             Button {
-                navigationCoordinator.present(Main.OverCurrentContext.popup)
+                appCoordinator.present(Main.OverCurrentContext.popup)
             } label: {
                 Text("POPUP")
             }
@@ -36,5 +36,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(NavigationCoordinator())
+        .environment(AppCoordinator())
 }

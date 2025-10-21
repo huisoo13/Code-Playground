@@ -10,12 +10,11 @@ import SwiftUI
 struct LoginView: View {
     
     @Environment(AppCoordinator.self) var appCoordinator
-    @Environment(NavigationCoordinator.self) var navigationCoordinator
 
     var body: some View {
         VStack(spacing: 16) {
             Button {
-                appCoordinator.set(.main)
+                appCoordinator.set(Main.root)
             } label: {
                 Text("LOGIN")
             }
@@ -24,7 +23,7 @@ struct LoginView: View {
                 .frame(height: 1)
 
             Button {
-                navigationCoordinator.push(Login.Path.terms)
+                appCoordinator.push(Login.Path.terms)
             } label: {
                 Text("SIGN UP")
             }
@@ -39,5 +38,4 @@ struct LoginView: View {
 #Preview {
     LoginView()
         .environment(AppCoordinator())
-        .environment(NavigationCoordinator())
 }

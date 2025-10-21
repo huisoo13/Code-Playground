@@ -27,3 +27,24 @@ struct AnyIdentifiable: Identifiable, Equatable, Hashable {
         hasher.combine(id)
     }
 }
+
+// MARK: - ID 자동 설정을 위한 Protocol
+
+protocol HashableIdentifiable: Hashable, Identifiable where ID == AnyHashable { }
+extension HashableIdentifiable {
+    var id: AnyHashable { String(describing: self) }
+
+    // case에 Closure가 포함 된 경우를 위해 두 값을 id 값으로 비교하는 코드 추가
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+protocol StringIdentifiable: Identifiable { }
+extension StringIdentifiable {
+    var id: String { String(describing: self) }
+}

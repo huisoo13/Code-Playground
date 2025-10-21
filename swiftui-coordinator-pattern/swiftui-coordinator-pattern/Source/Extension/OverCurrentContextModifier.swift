@@ -21,7 +21,7 @@ extension View {
 
 struct OverCurrentContextModifier<Item: Identifiable, PopupContent: View>: ViewModifier {
 
-    @Environment(NavigationCoordinator.self) var coordinator
+    @Environment(AppCoordinator.self) var coordinator
 
     @Binding var item: Item?
     

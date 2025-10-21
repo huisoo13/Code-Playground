@@ -8,6 +8,9 @@
 import SwiftUI
 
 enum Main {
+    struct Root: HashableIdentifiable, RootProtocol { }
+    static let root = Root()
+
     enum Path: HashableIdentifiable, PathProtocol {
         case home
         case setting
@@ -24,6 +27,13 @@ enum Main {
     }
     
     struct ViewFactory {
+        @ViewBuilder
+        static func root() -> some View {
+            NavigationContainer {
+                HomeView()
+            }
+        }
+
         @ViewBuilder
         static func view(_ path: Path) -> some View {
             switch path {

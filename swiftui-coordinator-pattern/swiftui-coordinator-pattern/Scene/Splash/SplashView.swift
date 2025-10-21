@@ -15,7 +15,7 @@ struct SplashView: View {
         Text("SPLASH")
             .task { @MainActor in
                 try? await Task.sleep(for: .seconds(2))
-                appCoordinator.set(.login)
+                appCoordinator.set(Login.root)
             }
     }
 }

@@ -9,8 +9,11 @@ import SwiftUI
 
 struct NavigationContainer<Content: View>: View {
     
+    @Environment(AppCoordinator.self) var appCoordinator
+
     @State private var coordinator: NavigationCoordinator = NavigationCoordinator()
     
+    private let id: UUID = UUID()
     private var content: Content
     init(parentCoordinator: NavigationCoordinator? = nil, @ViewBuilder content: () -> Content) {
         self.content = content()
@@ -23,16 +26,31 @@ struct NavigationContainer<Content: View>: View {
                 .navigationDestination(for: AnyHashable.self) { path in
                     ViewFactory.view(path)
                 }
-                .sheet(item: $coordinator.sheet) { sheet in
+                .sheet(item: $coordinator.sheet, onDismiss: {
+                    updateCoordinator()
+                }) { sheet in
                     ViewFactory.sheet(sheet, parentCoordinator: coordinator)
                 }
-                .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
+                .fullScreenCover(item: $coordinator.fullScreenCover, onDismiss: {
+                    updateCoordinator()
+                }) { fullScreenCover in
                     ViewFactory.fullScreenCover(fullScreenCover, parentCoordinator: coordinator)
                 }
         }
-        .overCurrentContext(item: $coordinator.overCurrentContext) { overCurrentContext in
+        .overCurrentContext(item: $coordinator.overCurrentContext, onDismiss: {
+            updateCoordinator()
+        }) { overCurrentContext in
             ViewFactory.overCurrentContext(overCurrentContext, parentCoordinator: coordinator)
         }
-        .environment(coordinator)
+        .onAppear {
+            updateCoordinator()
+        }
+        .onDisappear {
+            appCoordinator.removeCoordinator(with: id)
+        }
+    }
+    
+    private func updateCoordinator() {
+        appCoordinator.addNavigationCoordinator(coordinator, with: id)
     }
 }

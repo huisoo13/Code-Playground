@@ -9,12 +9,12 @@ import SwiftUI
 
 struct TermsView: View {
     
-    @Environment(NavigationCoordinator.self) var navigationCoordinator
+    @Environment(AppCoordinator.self) var appCoordinator
 
     var body: some View {
         VStack(spacing: 16) {
             Button {
-                navigationCoordinator.present(Login.Sheet.termsDetail)
+                appCoordinator.present(Login.Sheet.termsDetail)
             } label: {
                 Text("OPEN DETAIL")
             }
@@ -23,7 +23,7 @@ struct TermsView: View {
                 .frame(height: 1)
 
             Button {
-                navigationCoordinator.push(Login.Path.profile)
+                appCoordinator.push(Login.Path.profile)
             } label: {
                 Text("NEXT")
             }
@@ -36,5 +36,5 @@ struct TermsView: View {
 
 #Preview {
     TermsView()
-        .environment(NavigationCoordinator())
+        .environment(AppCoordinator())
 }

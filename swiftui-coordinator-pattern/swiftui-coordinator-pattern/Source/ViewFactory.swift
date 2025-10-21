@@ -9,10 +9,20 @@ import SwiftUI
 
 struct ViewFactory {
     @ViewBuilder
+    static func root(_ root: AnyIdentifiable) -> some View {
+        switch root.value {
+        case is Login.Root:
+            Login.ViewFactory.root()
+        case is Main.Root:
+            Main.ViewFactory.root()
+        default:
+            fatalError("Unhandled Root type in \(#function). Please register all expected Root cases.")
+        }
+    }
+
+    @ViewBuilder
     static func view(_ path: AnyHashable) -> some View {
         switch path {
-        case let path as Splash.Path:
-            Splash.ViewFactory.view(path)
         case let path as Login.Path:
             Login.ViewFactory.view(path)
         case let path as Main.Path:

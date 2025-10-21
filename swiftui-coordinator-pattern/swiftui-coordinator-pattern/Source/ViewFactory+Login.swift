@@ -8,6 +8,9 @@
 import SwiftUI
 
 enum Login {
+    struct Root: HashableIdentifiable, RootProtocol { }
+    static let root = Root()
+
     enum Path: HashableIdentifiable, PathProtocol {
         case login
         case terms
@@ -23,6 +26,13 @@ enum Login {
     enum OverCurrentContext: StringIdentifiable, OverCurrentContextProtocol { }
     
     struct ViewFactory {
+        @ViewBuilder
+        static func root() -> some View {
+            NavigationContainer {
+                LoginView()
+            }
+        }
+        
         @ViewBuilder
         static func view(_ path: Path) -> some View {
             switch path {

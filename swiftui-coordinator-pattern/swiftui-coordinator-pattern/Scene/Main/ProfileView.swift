@@ -10,7 +10,6 @@ import SwiftUI
 struct ProfileView: View {
     
     @Environment(AppCoordinator.self) var appCoordinator
-    @Environment(NavigationCoordinator.self) var navigationCoordinator
 
     enum ViewType: String {
         case create = "CREATE"
@@ -34,9 +33,9 @@ struct ProfileView: View {
             Button {
                 switch type {
                 case .create:
-                    appCoordinator.set(.main)
+                    appCoordinator.set(Main.root)
                 case .update:
-                    navigationCoordinator.dismiss()
+                    appCoordinator.dismiss()
                 }
             } label: {
                 Text("DONE")
@@ -51,5 +50,4 @@ struct ProfileView: View {
 #Preview {
     ProfileView(type: .create)
         .environment(AppCoordinator())
-        .environment(NavigationCoordinator())
 }

@@ -65,7 +65,7 @@ enum ToolBarItemStyle: Hashable {
 }
 
 private struct ToolBarItemView: View {
-    @Environment(NavigationCoordinator.self) var coordinator
+    @Environment(AppCoordinator.self) var coordinator
     // @Environment(\.dismiss) var dismiss // Coordinator 미사용 시
 
     let style: ToolBarItemStyle

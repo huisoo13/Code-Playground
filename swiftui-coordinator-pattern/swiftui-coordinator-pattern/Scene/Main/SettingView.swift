@@ -10,12 +10,11 @@ import SwiftUI
 struct SettingView: View {
     
     @Environment(AppCoordinator.self) var appCoordinator
-    @Environment(NavigationCoordinator.self) var navigationCoordinator
 
     var body: some View {
         VStack(spacing: 16) {
             Button {
-                navigationCoordinator.push(Main.Path.profile)
+                appCoordinator.push(Main.Path.profile)
             } label: {
                 Text("PUSH PROFILE")
             }
@@ -24,7 +23,7 @@ struct SettingView: View {
                 .frame(height: 1)
 
             Button {
-                navigationCoordinator.push(Main.Path.termsDetail)
+                appCoordinator.push(Main.Path.termsDetail)
             } label: {
                 Text("PUSH TERMS DETAIL")
             }
@@ -33,7 +32,7 @@ struct SettingView: View {
                 .frame(height: 1)
 
             Button {
-                appCoordinator.set(.login)
+                appCoordinator.reset()
             } label: {
                 Text("SIGN OUT")
                     .foregroundStyle(.red)
@@ -48,5 +47,4 @@ struct SettingView: View {
 #Preview {
     SettingView()
         .environment(AppCoordinator())
-        .environment(NavigationCoordinator())
 }
