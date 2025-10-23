@@ -18,7 +18,7 @@ struct swiftui_coordinator_patternApp: App {
         UINavigationBar.appearance().isTranslucent = false
         
         let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.backgroundColor = UIColor.white
+        navigationBarAppearance.backgroundColor = UIColor.systemBackground
         navigationBarAppearance.shadowColor = .clear
 
         UINavigationBar.appearance().standardAppearance = navigationBarAppearance

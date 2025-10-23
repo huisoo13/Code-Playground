@@ -10,11 +10,14 @@ import SwiftUI
 @MainActor @Observable
 class AppCoordinator {
     
-    private var id: AnyHashable?
+    private var activeCoordinatorIDs: [AnyHashable] = []
     private var navigationCoordinators: [AnyHashable: NavigationCoordinator] = [:]
     private var navigationCoordinator: NavigationCoordinator? {
+        // nil이 있다면 제거
         self.navigationCoordinators = navigationCoordinators.compactMapValues { $0 }
-        return navigationCoordinators.first(where: { $0.key == id })?.value
+        
+        guard let id = activeCoordinatorIDs.last else { return nil }
+        return navigationCoordinators[id]
     }
     
     var root: AnyIdentifiable?
@@ -27,25 +30,24 @@ class AppCoordinator {
         }
         
         withAnimation {
-            navigationCoordinators.values.forEach { $0.dismissAll() }
             navigationCoordinators.removeAll()
             self.root = AnyIdentifiable(root)
         }
     }
     
     func reset() {
-        navigationCoordinators.values.forEach { $0.dismissAll() }
         navigationCoordinators.removeAll()
         root = nil
     }
     
     func addNavigationCoordinator(_ coordinator: NavigationCoordinator, with id: AnyHashable) {
-        self.id = id
+        activeCoordinatorIDs.append(id)
         navigationCoordinators[id] = coordinator
     }
     
     func removeCoordinator(with id: AnyHashable) {
         navigationCoordinators.removeValue(forKey: id)
+        activeCoordinatorIDs.removeAll(where: { $0 == id })
     }
     
     // MARK: Navigation

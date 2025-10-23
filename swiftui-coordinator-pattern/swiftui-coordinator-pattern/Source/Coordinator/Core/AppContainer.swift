@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppContainer<Content: View>: View {
     
-    @State private var coordinator: AppCoordinator = AppCoordinator()
+    @Environment(AppCoordinator.self) var coordinator
     
     private var content: Content
     init(@ViewBuilder content: () -> Content) {

@@ -64,10 +64,10 @@ class NavigationCoordinator {
             overCurrentContext = nil
             fallthrough
         case (.none, .none, .none, false):  // fullScreenCover와 sheet가 없고, path가 있는 경우
-            path.removeLast()
+            path = NavigationPath()
             fallthrough
         case (.none, .none, .none, true):   // 모두 없는 경우
-            parentCoordinator?.dismiss()
+            parentCoordinator?.dismissAll()
         }
     }
 }

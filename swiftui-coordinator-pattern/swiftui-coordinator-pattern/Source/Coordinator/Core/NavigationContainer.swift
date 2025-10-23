@@ -26,31 +26,21 @@ struct NavigationContainer<Content: View>: View {
                 .navigationDestination(for: AnyHashable.self) { path in
                     ViewFactory.view(path)
                 }
-                .sheet(item: $coordinator.sheet, onDismiss: {
-                    updateCoordinator()
-                }) { sheet in
+                .sheet(item: $coordinator.sheet) { sheet in
                     ViewFactory.sheet(sheet, parentCoordinator: coordinator)
                 }
-                .fullScreenCover(item: $coordinator.fullScreenCover, onDismiss: {
-                    updateCoordinator()
-                }) { fullScreenCover in
+                .fullScreenCover(item: $coordinator.fullScreenCover) { fullScreenCover in
                     ViewFactory.fullScreenCover(fullScreenCover, parentCoordinator: coordinator)
                 }
         }
-        .overCurrentContext(item: $coordinator.overCurrentContext, onDismiss: {
-            updateCoordinator()
-        }) { overCurrentContext in
+        .overCurrentContext(item: $coordinator.overCurrentContext) { overCurrentContext in
             ViewFactory.overCurrentContext(overCurrentContext, parentCoordinator: coordinator)
         }
         .onAppear {
-            updateCoordinator()
+            appCoordinator.addNavigationCoordinator(coordinator, with: id)
         }
         .onDisappear {
             appCoordinator.removeCoordinator(with: id)
         }
-    }
-    
-    private func updateCoordinator() {
-        appCoordinator.addNavigationCoordinator(coordinator, with: id)
     }
 }
