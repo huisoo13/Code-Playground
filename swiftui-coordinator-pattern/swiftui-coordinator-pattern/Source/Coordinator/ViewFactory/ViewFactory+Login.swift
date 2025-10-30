@@ -8,8 +8,8 @@
 import SwiftUI
 
 enum Login {
-    struct Root: HashableIdentifiable, RootProtocol { }
-    static let root = Root()
+    struct Root: StringIdentifiable, RootProtocol { let id: AnyHashable }
+    static let root = Root(id: "Login")
 
     enum Path: HashableIdentifiable, PathProtocol {
         case login

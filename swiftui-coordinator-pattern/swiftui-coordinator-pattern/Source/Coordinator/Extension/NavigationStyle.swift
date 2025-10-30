@@ -18,19 +18,23 @@ extension View {
                     Text(title)
                         .font(font)
                 }
-                
-                ToolbarItem(placement: .topBarLeading) {
-                    HStack(spacing: 0) {
-                        ForEach(leftToolBarItems, id: \.self) { style in
-                            ToolBarItemView(style: style)
+
+                if !leftToolBarItems.isEmpty {
+                    ToolbarItem(placement: .topBarLeading) {
+                        HStack(spacing: 0) {
+                            ForEach(leftToolBarItems, id: \.self) { style in
+                                ToolBarItemView(style: style)
+                            }
                         }
                     }
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    HStack(spacing: 0) {
-                        ForEach(rightToolBarItems, id: \.self) { style in
-                            ToolBarItemView(style: style)
+                if !rightToolBarItems.isEmpty {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        HStack(spacing: 0) {
+                            ForEach(rightToolBarItems, id: \.self) { style in
+                                ToolBarItemView(style: style)
+                            }
                         }
                     }
                 }
