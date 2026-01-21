@@ -3,7 +3,7 @@
 
 @attached(member, names: named(StorageFromMacro), named(storageFromMacro), named(init))
 @attached(memberAttribute)
-public macro AppStorageContainer() = #externalMacro(module: "swift_custom_macroMacros", type: "AppStorageContainerMacro")
+public macro AppStorageContainer() = #externalMacro(module: "AppStorageContainerMacroMacros", type: "AppStorageContainerMacro")
 
 @attached(accessor, names: named(didSet))
-public macro AppStored() = #externalMacro(module: "swift_custom_macroMacros", type: "AppStoredMacro")
+public macro AppStored() = #externalMacro(module: "AppStorageContainerMacroMacros", type: "AppStoredMacro")
