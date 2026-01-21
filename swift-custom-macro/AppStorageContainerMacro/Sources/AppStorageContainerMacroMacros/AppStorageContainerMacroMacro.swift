@@ -19,7 +19,7 @@ public struct AppStorageContainerMacro: MemberMacro, MemberAttributeMacro {
             return []
         }
         
-        return [AttributeSyntax(stringLiteral: "@AppStored")]
+        return [AttributeSyntax(stringLiteral: "@AppStored"), AttributeSyntax(stringLiteral: "@ObservationIgnored")]
     }
     
     // MARK: - 2. MemberMacro 구현
@@ -93,6 +93,7 @@ public struct AppStoredMacro: AccessorMacro {
         let didSetCode = """
         didSet {
             storageFromMacro.\(identifier) = self.\(identifier)
+            print("\(identifier) update")
         }
         """
         
