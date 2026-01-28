@@ -22,10 +22,17 @@ struct ContentView: View {
             Spacer()
             
             Text("Flexible height")
-            TextView("Placehoder", text: $text, option: .flexible(3))
-                .padding()
-                .background(.black.opacity(0.1))
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+            TextView(
+                "Placehoder",
+                text: $text,
+                prompt: Text("Placehoder Text")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(Color.red),
+                option: .flexible(3)
+            )
+            .padding()
+            .background(.black.opacity(0.1))
+            .clipShape(RoundedRectangle(cornerRadius: 16))
         }
         .font(.system(size: 14, weight: .medium))
         .lineSpacing(10)

@@ -30,7 +30,8 @@ struct TextView: View {
 
     @Binding private var text: String
     
-    private let placeholder: String
+    private let titleKey: LocalizedStringKey
+    private let prompt: Text?
     private let option: Option
     
     private let lineLimit: Int?
@@ -40,9 +41,10 @@ struct TextView: View {
     ///
     /// Use this initializer to create a text view with a specific height behavior.
     /// If you choose the `.flexible` option without a limit, the view will expand indefinitely.
-    init(_ placeholder: String, text: Binding<String>, option: Option = .flexible()) {
-        self.placeholder = placeholder
+    init(_ titleKey: LocalizedStringKey, text: Binding<String>, prompt: Text? = nil, option: Option = .flexible()) {
+        self.titleKey = titleKey
         self._text = text
+        self.prompt = prompt
         self.option = option
         
         switch option {
@@ -83,7 +85,7 @@ struct TextView: View {
                 .allowsHitTesting(false)
             
             // Actually displayed
-            TextField(placeholder, text: $text, axis: .vertical)
+            TextField(titleKey, text: $text, prompt: prompt, axis: .vertical)
                 .textFieldStyle(.plain)
         }
     }
