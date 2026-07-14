@@ -137,7 +137,3 @@ struct HorizontalCalendar<Content: View>: View {
         }
     }
 }
-
-#Preview {
-    ContentView()
-}
