@@ -11,13 +11,17 @@ struct NavigationContainer<Content: View>: View {
     
     @Environment(AppCoordinator.self) var appCoordinator
 
-    @State private var coordinator: NavigationCoordinator = NavigationCoordinator()
-    
+    @State private var coordinator: NavigationCoordinator
+
     private let id: UUID = UUID()
     private var content: Content
+
     init(parentCoordinator: NavigationCoordinator? = nil, @ViewBuilder content: () -> Content) {
         self.content = content()
-        self.coordinator.parentCoordinator = parentCoordinator
+
+        let coordinator = NavigationCoordinator()
+        coordinator.parentCoordinator = parentCoordinator
+        self.coordinator = coordinator
     }
 
     var body: some View {
