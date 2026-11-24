@@ -49,6 +49,7 @@
 			membershipExceptions = (
 				Assets.xcassets,
 				ContentView.swift,
+				README.md,
 				swiftui_widget_kitApp.swift,
 			);
 			target = 57EC21F42E6E66C6006FFEFC /* swiftui-widget-kit */;
